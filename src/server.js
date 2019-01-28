@@ -1,4 +1,25 @@
+import express from 'express';
 import WebSocket from 'ws';
+
+const app = express();
+const host = 'localhost';
+const port = process.env.PORT || 8085;
+
+app.get('/test', (req, res) => {
+  res.send({ data: 'a simple string' });
+});
+
+const server = app.listen(port, host, err => {
+  if (err) {
+    /* eslint-disable no-console */
+    console.err(err);
+    /* eslint-enable */
+    return;
+  }
+  /* eslint-disable no-console */
+  console.log(`server is listening at http://${host}:${port}`);
+  /* eslint-enable */
+});
 
 /**/
 function handleClose() {}
@@ -18,7 +39,7 @@ function handlePong() {
   this.isAlive = true;
 }
 
-const wss = new WebSocket.Server({ port: 8085 });
+const wss = new WebSocket.Server({ server });
 
 wss.on('connection', ws => {
   ws.isAlive = true;
