@@ -1,0 +1,41 @@
+{
+  "name": "vaiml-ws",
+  "version": "1.0.0",
+  "description": "Visual analytics for interpretable machine learning - WebSockets",
+  "author": "Lars Schütz (https://github.com/laschuet)",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js",
+    "dist": "babel src --out-dir dist",
+    "lint": "eslint --ext .js .",
+    "lint-fix": "eslint --fix --ext .js .",
+    "prettier": "prettier --single-quote --trailing-comma all \"src/**/*.js\"",
+    "prettier-fix": "prettier --single-quote --trailing-comma all --write \"src/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laschuet/vaiml-ws.git"
+  },
+  "bugs": {
+    "url": "https://github.com/laschuet/vaiml-ws/issues"
+  },
+  "homepage": "https://github.com/laschuet/vaiml-ws",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.1",
+    "eslint-config-fbjs-opensource": "^1.0.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.16.1"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "ws": "^6.1.3"
+  }
+}
