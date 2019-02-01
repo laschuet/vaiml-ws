@@ -3,7 +3,7 @@ import WebSocket from 'ws';
 
 const app = express();
 const host = 'localhost';
-const port = process.env.PORT || 8085;
+const port = process.env.PORT || 4020;
 
 app.get('/test', (req, res) => {
   res.send({ data: 'a simple string' });
