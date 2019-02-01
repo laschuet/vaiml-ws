@@ -5,10 +5,6 @@ const app = express();
 const host = 'localhost';
 const port = process.env.PORT || 4020;
 
-app.get('/test', (req, res) => {
-  res.send({ data: 'a simple string' });
-});
-
 const server = app.listen(port, host, err => {
   if (err) {
     /* eslint-disable no-console */
