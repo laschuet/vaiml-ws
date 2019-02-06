@@ -22,7 +22,9 @@ function handleClose() {}
 
 /**/
 function handleError(error) {
+  /* eslint-disable no-console */
   console.error(error.message);
+  /* eslint-enable */
 }
 
 /**/
