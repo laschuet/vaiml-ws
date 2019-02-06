@@ -27,11 +27,12 @@ function handleError(error) {
 
 /**/
 function handleMessage(message) {
-  console.log(message);
+  this.send(`Echo: ${message} `);
 }
 
 /**/
 function handlePong() {
+  this.send('Pong: Received');
   this.isAlive = true;
 }
 
@@ -45,7 +46,7 @@ wss.on('connection', ws => {
   ws.on('message', handleMessage);
   ws.on('pong', handlePong);
 
-  ws.send('WebSocket server is up');
+  ws.send('Connection: UP');
 });
 
 setInterval(() => {
