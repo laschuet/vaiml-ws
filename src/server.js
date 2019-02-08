@@ -31,7 +31,7 @@ function handleError(error) {
 
 /**/
 function handleMessage(message) {
-  this.send(format(`Echo: ${message} `));
+  this.send(format(`Echo: ${message}`));
 }
 
 /**/
