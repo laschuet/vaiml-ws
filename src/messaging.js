@@ -7,4 +7,9 @@ const format = data => {
   return JSON.stringify(message);
 };
 
-export default format;
+/**/
+function send(data) {
+  this.send(format(data));
+}
+
+export default send;
