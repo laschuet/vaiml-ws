@@ -1,6 +1,8 @@
 import express from 'express';
 import WebSocket from 'ws';
 
+import format from './messaging';
+
 const app = express();
 const host = 'localhost';
 const port = process.env.PORT || 4020;
@@ -29,12 +31,12 @@ function handleError(error) {
 
 /**/
 function handleMessage(message) {
-  this.send(`Echo: ${message} `);
+  this.send(format(`Echo: ${message} `));
 }
 
 /**/
 function handlePong() {
-  this.send('Pong: Received');
+  this.send(format('Pong: Received'));
   this.isAlive = true;
 }
 
@@ -48,7 +50,7 @@ wss.on('connection', ws => {
   ws.on('message', handleMessage);
   ws.on('pong', handlePong);
 
-  ws.send('Connection: UP');
+  ws.send(format('Connection: UP'));
 });
 
 setInterval(() => {
