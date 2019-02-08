@@ -8,8 +8,8 @@ const format = data => {
 };
 
 /**/
-function send(data) {
+function dispatch(data) {
   this.send(format(data));
 }
 
-export default send;
+export default dispatch;

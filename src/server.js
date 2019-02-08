@@ -1,7 +1,7 @@
 import express from 'express';
 import WebSocket from 'ws';
 
-import emit from './messaging';
+import dispatch from './messaging';
 
 const app = express();
 const host = 'localhost';
@@ -31,12 +31,12 @@ function handleError(error) {
 
 /**/
 function handleMessage(message) {
-  this.emit(`Echo: ${message}`);
+  this.dispatch(`Echo: ${message}`);
 }
 
 /**/
 function handlePong() {
-  this.emit('Pong: Received');
+  this.dispatch('Pong: Received');
   this.isAlive = true;
 }
 
@@ -44,14 +44,14 @@ const wss = new WebSocket.Server({ server });
 
 wss.on('connection', ws => {
   ws.isAlive = true;
-  ws.emit = emit;
+  ws.dispatch = dispatch;
 
   ws.on('close', handleClose);
   ws.on('error', handleError);
   ws.on('message', handleMessage);
   ws.on('pong', handlePong);
 
-  ws.emit('Connection: UP');
+  ws.dispatch('Connection: UP');
 });
 
 setInterval(() => {
