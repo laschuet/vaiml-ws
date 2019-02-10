@@ -16,9 +16,9 @@ const run = (program, ws) => {
 
   process.on('close', () => {
     if (stderr.length > 0) {
-      ws.dispatch(stderr);
+      ws.dispatch({ output: stderr, type: 'STDERR' });
     } else {
-      ws.dispatch(stdout);
+      ws.dispatch({ output: stdout, type: 'STDOUT' });
     }
   });
 };
