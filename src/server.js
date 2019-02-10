@@ -2,6 +2,7 @@ import express from 'express';
 import WebSocket from 'ws';
 
 import dispatch from './messaging';
+import run from './process';
 
 const app = express();
 const host = 'localhost';
@@ -32,6 +33,10 @@ function handleError(error) {
 /**/
 function handleMessage(message) {
   this.dispatch(`Echo: ${message}`);
+
+  if (message === 'run/julia') {
+    run('print(rand(3) * rand(1, 3))', this);
+  }
 }
 
 /**/
