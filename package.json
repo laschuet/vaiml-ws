@@ -37,5 +37,38 @@
   "dependencies": {
     "express": "^4.17.1",
     "ws": "^7.0.1"
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "fbjs-opensource",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "babel/no-await-in-loop": "off",
+      "no-await-in-loop": "error",
+      "prettier/prettier": "error"
+    }
+  },
+  "eslintIgnore": ["**/nodes_modules", "dist/"],
+  "prettier": {
+    "parser": "babel",
+    "singleQuote": true,
+    "trailingComma": "all"
   }
 }
