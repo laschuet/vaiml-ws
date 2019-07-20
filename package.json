@@ -22,24 +22,26 @@
   },
   "homepage": "https://github.com/laschuet/vaiml-ws",
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/node": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^10.0.2",
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.1",
     "eslint-config-fbjs-opensource": "^2.0.0",
-    "eslint-config-prettier": "^5.0.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "nodemon": "^1.19.1",
     "prettier": "^1.18.2"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "ws": "^7.0.1"
+    "ws": "^7.1.1"
   },
   "babel": {
-    "presets": ["@babel/preset-env"]
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -65,7 +67,10 @@
       "prettier/prettier": "error"
     }
   },
-  "eslintIgnore": ["**/nodes_modules", "dist/"],
+  "eslintIgnore": [
+    "**/nodes_modules",
+    "dist/"
+  ],
   "prettier": {
     "parser": "babel",
     "singleQuote": true,
