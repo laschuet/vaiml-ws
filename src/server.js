@@ -32,16 +32,23 @@ function handleError(error) {
 
 /**/
 function handleMessage(message) {
-  this.dispatch(`Echo: ${message}`);
-
-  if (message === 'run/julia') {
-    run('print(rand(3) * rand(1, 3))', this);
+  try {
+    const json = JSON.parse(message);
+    console.log(json);
+    console.log(json.type);
+    if (json.type === 'julia_code') {
+      console.log(json.code);
+      run(this, 'julia', ['-e', json.code]);
+    } else if (json.type === 'julia_file') {
+      // TODO implement
+    }
+  } catch (error) {
+    handleError(error);
   }
 }
 
 /**/
 function handlePong() {
-  this.dispatch('Pong: Received');
   this.isAlive = true;
 }
 
@@ -56,7 +63,7 @@ wss.on('connection', ws => {
   ws.on('message', handleMessage);
   ws.on('pong', handlePong);
 
-  ws.dispatch('Connection: UP');
+  ws.dispatch('up');
 });
 
 setInterval(() => {

@@ -1,15 +1,11 @@
 /**/
-const format = data => {
+function dispatch(type, ...data) {
   const message = {
-    data,
+    type,
     timestamp: Date.now(),
+    ...data,
   };
-  return JSON.stringify(message);
-};
-
-/**/
-function dispatch(data) {
-  this.send(format(data));
+  this.send(JSON.stringify(message));
 }
 
 export default dispatch;

@@ -1,10 +1,10 @@
 import { spawn } from 'child_process';
 
-const run = (program, ws) => {
+const run = (ws, program, ...args) => {
   let stdout = '';
   let stderr = '';
 
-  const process = spawn('julia', ['-e', program]);
+  const process = spawn(program, args);
 
   process.stdout.on('data', data => {
     stdout += String(data);
@@ -16,9 +16,9 @@ const run = (program, ws) => {
 
   process.on('close', () => {
     if (stderr.length > 0) {
-      ws.dispatch({ output: stderr, type: 'STDERR' });
+      ws.dispatch('process', stderr);
     } else {
-      ws.dispatch({ output: stdout, type: 'STDOUT' });
+      ws.dispatch('process', stdout);
     }
   });
 };
