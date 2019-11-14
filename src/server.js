@@ -34,8 +34,6 @@ function handleError(error) {
 function handleMessage(message) {
   try {
     const json = JSON.parse(message);
-    console.log(json);
-    console.log(json.type);
     if (json.type === 'julia_code') {
       console.log(json.code);
       run(this, 'julia', ['-e', json.code]);
