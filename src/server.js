@@ -35,8 +35,7 @@ function handleMessage(message) {
   try {
     const json = JSON.parse(message);
     if (json.type === 'julia_code') {
-      console.log(json.code);
-      run(this, 'julia', ['-e', json.code]);
+      run(this, 'julia', '-e', json.code);
     } else if (json.type === 'julia_file') {
       // TODO implement
     }
