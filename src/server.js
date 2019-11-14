@@ -3,6 +3,11 @@ import WebSocket from 'ws';
 
 import dispatch from './messaging';
 import run from './process';
+import {
+  PROTOCOL_CONNECTION_ESTABLISHED,
+  PROTOCOL_RUN_JULIA_CODE,
+  PROTOCOL_RUN_JULIA_FILE,
+} from './protocol';
 
 const app = express();
 const host = 'localhost';
@@ -34,9 +39,9 @@ function handleError(error) {
 function handleMessage(message) {
   try {
     const json = JSON.parse(message);
-    if (json.type === 'julia_code') {
+    if (json.type === PROTOCOL_RUN_JULIA_CODE) {
       run(this, 'julia', '-e', json.code);
-    } else if (json.type === 'julia_file') {
+    } else if (json.type === PROTOCOL_RUN_JULIA_FILE) {
       // TODO implement
     }
   } catch (error) {
@@ -60,7 +65,7 @@ wss.on('connection', ws => {
   ws.on('message', handleMessage);
   ws.on('pong', handlePong);
 
-  ws.dispatch('up');
+  ws.dispatch(PROTOCOL_CONNECTION_ESTABLISHED);
 });
 
 setInterval(() => {

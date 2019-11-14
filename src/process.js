@@ -1,5 +1,7 @@
 import { spawn } from 'child_process';
 
+import { PROTOCOL_PROCESS_CLOSED } from './protocol';
+
 const run = (ws, program, ...args) => {
   let stdout = '';
   let stderr = '';
@@ -16,9 +18,9 @@ const run = (ws, program, ...args) => {
 
   process.on('close', () => {
     if (stderr.length > 0) {
-      ws.dispatch('process', stderr);
+      ws.dispatch(PROTOCOL_PROCESS_CLOSED, stderr);
     } else {
-      ws.dispatch('process', stdout);
+      ws.dispatch(PROTOCOL_PROCESS_CLOSED, stdout);
     }
   });
 };
