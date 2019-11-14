@@ -40,7 +40,7 @@ function handleMessage(message) {
   try {
     const json = JSON.parse(message);
     if (json.type === PROTOCOL_RUN_JULIA_CODE) {
-      run(this, 'julia', '-e', json.code);
+      run(this, 'julia', '-e', json.data);
     } else if (json.type === PROTOCOL_RUN_JULIA_FILE) {
       // TODO implement
     }
