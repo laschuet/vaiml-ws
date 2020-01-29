@@ -1,7 +1,7 @@
 {
-  "name": "vaiml-ws",
+  "name": "vaipp-ws",
   "version": "1.0.0",
-  "description": "Visual analytics for interpretable machine learning - WebSockets",
+  "description": "Visual analytics in participatory processes - WebSockets",
   "author": "Lars Schütz (https://github.com/laschuet)",
   "license": "MIT",
   "private": true,
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/laschuet/vaiml-ws.git"
+    "url": "https://github.com/laschuet/vaipp-ws.git"
   },
   "bugs": {
-    "url": "https://github.com/laschuet/vaiml-ws/issues"
+    "url": "https://github.com/laschuet/vaipp-ws/issues"
   },
-  "homepage": "https://github.com/laschuet/vaiml-ws",
+  "homepage": "https://github.com/laschuet/vaipp-ws",
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",

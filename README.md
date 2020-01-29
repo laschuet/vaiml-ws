@@ -1,9 +1,9 @@
-# vaiml-ws
+# vaipp-ws
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/laschuet/vaiml-ws/blob/master/LICENSE.txt)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/laschuet/vaipp-ws/blob/master/LICENSE.txt)
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
-Visual analytics for interpretable machine learning - WebSockets.
+Visual analytics in participatory processes - WebSockets.
 
 ## Requirements
 
@@ -49,4 +49,4 @@ Run prettier including fixes.
 
 ## License
 
-vaiml-ws is licensed under the [MIT License](./LICENSE.txt).
+vaipp-ws is licensed under the [MIT License](./LICENSE.txt).
